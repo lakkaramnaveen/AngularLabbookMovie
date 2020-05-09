@@ -1,0 +1,26 @@
+<div class="jumbotron text-center">
+
+    <table class="table table-hover">
+      <tbody>
+        <tr>
+          <th>S.No</th>
+          <th>Movie Id</th>
+          <th>Movie Name</th>
+          <th>Movie Rating</th>
+          <th>Movie Genre</th>
+        </tr>
+  
+       <tr *ngFor="let movie of arr | async ;let i=index">
+         <td>{{i+1}}</td>
+         <td>{{movie.moviesId}}</td>
+         <td>{{movie.moviesName}}</td>
+         <td>{{movie.moviesRating}}</td>
+         <td>{{movie.moviesGenre}}</td>
+       </tr>
+      </tbody>
+  
+    </table>
+ 
+<button (click)="add()" class="btn btn-primary">Go Back To Add</button>
+</div>
+

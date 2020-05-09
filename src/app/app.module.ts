@@ -3,16 +3,19 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AddproductComponent } from './addproduct/addproduct.component';
-import { ViewproductComponent } from './viewproduct/viewproduct.component';
+import { AddmoviesComponent } from './addmovies/addmovies.component';
+import { SearchmoviesComponent } from './searchmovies/searchmovies.component';
+import { ViewmoviesComponent } from './viewmovies/viewmovies.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AddproductComponent,
-    ViewproductComponent
+    AddmoviesComponent,
+    SearchmoviesComponent,
+    ViewmoviesComponent
+    
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,63 @@
+<div class="jumbotron text-center">
+    <h1>Add Movie</h1>
+        <form>
+      
+            <div class="form-group">
+                <label for="moviesName">Enter Movie Name </label>
+                <input required [(ngModel)]="movies.moviesName"   type="text" minlength="4" pattern="[a-zA-Z ]+"  #moviesName="ngModel" class="form-control" name="moviesName"  id="moviesName">
+                <div *ngIf="moviesName.invalid && (moviesName.dirty || moviesName.touched)" class="alert alert-danger">
+                     <div *ngIf="moviesName.errors.required">
+                        Movie Name is required.
+                       </div>
+                      <div *ngIf="moviesName.errors.minlength">
+                         Movie Name must be at least 4 characters long.
+                     </div>
+                      <div *ngIf="moviesName.errors.pattern">
+                        Movie Name should contain only characters.
+                      </div>
+                </div>
+            </div>
+      
+            <div class="form-group">
+                <label for="moviesRating">Enter Movie Rating </label>
+                <input required [(ngModel)]="movies.moviesRating" pattern="[1-4]\.[0-9]" #moviesRating="ngModel" type="number" class="form-control" name="moviesRating"  id="moviesRating">
+                <div *ngIf="moviesRating.invalid && (moviesRating.dirty || moviesRating.touched)" class="alert alert-danger">
+                    <div *ngIf="moviesRating.errors.required">
+                       Movie Rating is required.
+                      </div>
+                     <div *ngIf="moviesRating.errors.pattern">
+                       Movie Rating should contain only numbers(eg: 2.5 rating on 1-5 scale).
+                     </div>
+               </div>
+            </div>
+    
+            <div class="form-group">
+                <label for=moviesGenre>Select the Genre</label>
+                
+                <select [(ngModel)]="movies.moviesGenre"  #moviesGenre="ngModel" type="drop" id="moviesGenre" name="moviesGenre" required>
+                    <option value="none" selected disabled hidden>  -- select --</option>  
+                   <option value="Drama">Drama</option>
+                   <option value="Fiction">Fiction</option>
+                   <option value ="Satire">Satire</option>
+               </select>
+               <div *ngIf="moviesGenre.invalid && (moviesGenre.dirty || moviesGenre.touched)"
+                class="alert alert-danger">
+        
+                       <div *ngIf="moviesGenre.errors.required">
+                            Movie Genre is required
+                         </div>
+        
+      
+                </div>
+        
+        
+              </div>
+      
+           <button   (click)="createMovies()" type="submit" class="btn btn-primary"> Add Movie  </button><br><br>
+           <button (click)="searchMovie()" class="btn btn-info">Search Movies By Genre</button>
+      
+          </form>
+      
+      </div>
+    
+      

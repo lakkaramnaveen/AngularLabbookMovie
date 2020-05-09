@@ -1,0 +1,44 @@
+<div class="jumbotron text-center">
+  <h1> Search Movie</h1>
+  <form  #searchform="ngForm" (ngSubmit)="find()">
+      <label for=moviesGenre>Search Movie</label>
+          
+          <select [(ngModel)]="movie.moviesGenre"  #moviesGenre="ngModel" type="drop"id="moviesGenre" name="moviesGenre" required>
+              <option value="none" selected disabled hidden>  -- select --</option>  
+             <option value="Drama">Drama</option>
+             <option value="Fiction">Fiction</option>
+             <option value ="Satire">Satire</option>
+         </select>
+         <div *ngIf="moviesGenre.invalid && (moviesGenre.dirty || moviesGenre.touched)"
+          class="alert alert-danger">
+  
+  <div *ngIf="moviesGenre.errors.required">
+  Movie Genre is required
+  </div>
+  
+  </div>
+  <div>
+      <button [disabled]="!searchform.form.valid" type="submit" class="btn btn-success">Search Movie</button>
+  </div>
+  <table class="table table-hover">
+  
+      <tr>
+         
+          <th >Movie Name</th>
+          <th >Rating</th>
+          
+         
+      </tr>
+  
+      <tr *ngFor="let col of movies | async,let i=index">
+  
+          
+          <td>{{col.moviesName}}</td>
+          <td>{{col.moviesRating}}</td>
+         
+         
+       </tr>
+    </table>
+      </form>
+  
+      </div>
